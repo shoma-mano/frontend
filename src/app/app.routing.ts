@@ -3,7 +3,7 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import  {AuthGuard } from "./auth-guard.service"
-
+import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module'
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 const routes: Routes =[
@@ -16,7 +16,7 @@ const routes: Routes =[
     component: AdminLayoutComponent,
     children: [{
       path: '',
-      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+      loadChildren:()=>import("./layouts/admin-layout/admin-layout.module").then(m => m.AdminLayoutModule)
     }]
   }
 ];
