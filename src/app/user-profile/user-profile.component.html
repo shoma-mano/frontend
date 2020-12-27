@@ -8,19 +8,15 @@
                       <p class="card-category">Complete your profile</p>
                   </div>
                   <div class="card-body">
-                      <form>
+                      <form *ngIf="userProfile">
                           <div class="row">
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Company (disabled)" disabled>
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-3">
+                              <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username">
+                                    <input *ngIf="userProfile.username" matInput value="{{ userProfile.username }}">
+                                    
                                   </mat-form-field>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
                                     <input matInput placeholder="Email address" type="email">
                                   </mat-form-field>

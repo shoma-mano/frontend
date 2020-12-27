@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-
+import  {AuthGuard } from "../../auth-guard.service";
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { TableListComponent } from '../../table-list/table-list.component';
@@ -52,7 +52,8 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'dashboard',      component: DashboardComponent },
+    { path: 'dashboard',      component: DashboardComponent, canActivate: [AuthGuard],
+    data: { roles: ['admin'] }},
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },

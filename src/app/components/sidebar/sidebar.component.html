@@ -38,5 +38,17 @@
                 <p>{{menuItem.title}}</p>
             </a>
         </li>
+        <li *ngIf="!isLoggedIn">
+            <a class="nav-link" >
+                <i class="material-icons">account_circle</i>
+                <p class="cursor"  (click)="login()">login</p>
+            </a>
+        </li>
+        <li *ngIf="isLoggedIn">
+            <a class="nav-link" >
+                <i class="material-icons">account_circle</i>
+                <p class="cursor"  (click)="logout()">logout</p>
+            </a>
+        </li>
     </ul>
 </div>
