@@ -1,6 +1,8 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { HeroService } from '../../hero.service';
 import { Hero } from '../../hero';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-table-list',
@@ -11,12 +13,20 @@ export class TableListComponent implements OnInit {
   heroes: Hero[];
   hero:Hero;
   dashboardheroes:Hero[];
-  constructor(private heroService:HeroService,public changeDetectorRef: ChangeDetectorRef) { }
+  public isLoggedIn = false;
+  public userProfile: KeycloakProfile | null = null;
+  constructor(private heroService:HeroService,
+    public changeDetectorRef: ChangeDetectorRef,
+    private readonly keycloak: KeycloakService) { }
   condition$:boolean;
 
-  ngOnInit() {
+  public async ngOnInit() {
     this.getHeroes();
     this.getDashBoardHeroes();
+    this.isLoggedIn = await this.keycloak.isLoggedIn();
+    if (this.isLoggedIn) {
+      this.userProfile = await this.keycloak.loadUserProfile();
+    }
   }
   
 

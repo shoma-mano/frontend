@@ -10,9 +10,10 @@
                   <div class="card-body">
                       <div class="table-responsive">
                         <div class="float-right flex-end"  class="stats">
-                            <i class="material-icons text-danger">warning</i>
-                              <a   class="text-right" *ngIf="dashboardheroes?.length>=20">You can't add more hero.Delete your hero if you want to add a new hero.</a>
-                          </div>
+                          <div *ngIf="dashboardheroes?.length>=20">
+                              <i class="material-icons text-danger">warning</i>
+                              <a class="text-right" *ngIf="dashboardheroes?.length>=20">You can't add more hero.Delete your hero if you want to add a new hero.</a>
+                          </div>                        
                           <table class="table">
                               <thead class=" text-primary">
                                   <th>
