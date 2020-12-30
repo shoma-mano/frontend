@@ -8,14 +8,14 @@
                           <i class="material-icons">content_copy</i>
                       </div>
                       <h4 class="card-title">Your Favorite Hero</h4>
-                      <h3 class="card-title">{{heroes.length}}/20
+                      <h3 class="card-title">{{heroes?.length}}/20
                           <small>heroes</small>
                       </h3>
                   </div>
                   <div  class="card-footer justify-content-end">
                       <div class="float-right flex-end"  class="stats">
-                        <i class="material-icons text-danger" *ngIf="heroes.length==20">warning</i>
-                          <p class="text-right" *ngIf="heroes.length==20">You can't add more hero.Delete your hero if you want to add a new hero.</p>
+                        <i class="material-icons text-danger" *ngIf="heroes?.length==20">warning</i>
+                          <p class="text-right" *ngIf="heroes?.length==20">You can't add more hero.Delete your hero if you want to add a new hero.</p>
                       </div>
                   </div>
               </div>

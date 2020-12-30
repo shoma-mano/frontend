@@ -22,10 +22,10 @@ export class TableListComponent implements OnInit {
 
   public async ngOnInit() {
     this.getHeroes();
-    this.getDashBoardHeroes();
     this.isLoggedIn = await this.keycloak.isLoggedIn();
     if (this.isLoggedIn) {
       this.userProfile = await this.keycloak.loadUserProfile();
+      this.getDashBoardHeroes();
     }
   }
   
@@ -35,7 +35,7 @@ export class TableListComponent implements OnInit {
   }
 
   getDashBoardHeroes():void{
-    this.heroService.getHeroes().subscribe(heroes=>{
+    this.heroService.getHeroes(this.userProfile.email).subscribe(heroes=>{
       this.dashboardheroes=heroes;
       console.log(heroes.length)
       if(heroes.length>=20)this.changeDetectorRef.detectChanges();
@@ -46,10 +46,12 @@ export class TableListComponent implements OnInit {
   insertHero(hero:Hero):void{
     console.log("hello");
     console.log(this.heroes.length);
+    if (this.isLoggedIn) {
+      hero.email=this.userProfile.email;
+    }
+    console.log(hero);
     this.heroService.addHero(hero).subscribe((hero)=>this.dashboardheroes.push(hero));
-    if(this.dashboardheroes.length>=20){
-      console.log(2);
-  }
+    
   }
 
 }

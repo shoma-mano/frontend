@@ -20,8 +20,8 @@ export class HeroService {
     private http: HttpClient,) { }
 
   /** サーバーからヒーローを取得する */
-  getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>("http://localhost:8080/api/getHeroes")
+  getHeroes(email:string): Observable<Hero[]> {
+    return this.http.get<Hero[]>("http://localhost:8080/api/getHeroes/"+email)
       .pipe(
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
