@@ -15,6 +15,7 @@
                   <div  class="card-footer justify-content-end">
                       <div class="float-right flex-end"  class="stats">
                         <i class="material-icons text-danger" *ngIf="heroes?.length==20">warning</i>
+                          <h4 class="text-right">There goes my hero...</h4>
                           <p class="text-right" *ngIf="heroes?.length==20">You can't add more hero.Delete your hero if you want to add a new hero.</p>
                       </div>
                   </div>
@@ -30,14 +31,14 @@
                   <img src={{hero.url}}>
                   <div class="card-body">
                   <div class="d-flex justify-content-between">
-                      <h4  class="card-title">{{hero.name}}</h4><button class="btn btn-outline-primary"(click)="delete(hero)" style="margin-right:-5px;border:solid">delete</button>
+                      <h3  class="card-title">{{hero.name}}</h3><button class="btn btn-outline-primary"(click)="delete(hero)" style="margin-right:-5px;border:solid">delete</button>
                    </div>   
                    <p class="card-category">
-                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                          <span class="text-success"></span>serif「」</p>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <i class="material-icons">access_time</i> updated 4 minutes ago
+                        © 2019 MARVEL
                       </div>
                   </div>
               </div>

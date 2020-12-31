@@ -22,4 +22,12 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  login(){
+    this.keycloak.login();
+  }
+
+  public logout() {
+    this.keycloak.logout();
+  }
+
 }
