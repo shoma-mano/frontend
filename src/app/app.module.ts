@@ -28,7 +28,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     keycloak.init({
       config: {
         url: 'http://localhost:8081/auth',
-        realm: 'master',
+        realm: 'DEMO',
         clientId: 'keycloak-angular',
       },
       initOptions: {
