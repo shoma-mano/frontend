@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import {ShoppingCartModule} from 'ng-shopping-cart';
+
 import { AppComponent } from './app.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -42,14 +42,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 @NgModule({
   imports: [
-    ShoppingCartModule.forRoot({ // <-- Add the cart module to your root module
-      　　　　　　　　　　　　　　　 // <-- Configuration is optional
-      serviceType: 'localStorage',
-      serviceOptions: {
-        storageKey: 'NgShoppingCart',
-        clearOnError: true
-      }
-    }),
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -59,9 +51,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     RouterModule,
     KeycloakAngularModule,
     AppRoutingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
+   
   ],
   declarations: [
     AppComponent,

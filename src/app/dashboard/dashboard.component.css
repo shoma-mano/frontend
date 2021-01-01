@@ -2,3 +2,10 @@ img {
     width: 100%;
     height: auto;
 }
+button{
+    width:90%;
+    max-width: 150px;
+}
+.right{
+   margin:0 0 0 auto;
+}

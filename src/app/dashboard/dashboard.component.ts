@@ -27,10 +27,18 @@ export class DashboardComponent implements OnInit {
 }
 
 getHeroes():void{
+  if(this.isLoggedIn){
   　this.heroService.getHeroes(this.userProfile.email).subscribe(heroes => {
-    this.heroes = heroes;
-    console.log(heroes);}
-    );
+    this.heroes = heroes;})
+  }else{
+    this.heroService.getHeroes("ms").subscribe(heroes => {
+      this.heroes = heroes;
+    })
+  }
+}
+
+login(){
+  this.keycloak.login();
 }
 
 delete(hero:Hero):void{

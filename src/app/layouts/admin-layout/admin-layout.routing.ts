@@ -52,10 +52,11 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'dashboard',      component: DashboardComponent, canActivate: [AuthGuard],
+    { path: 'dashboard',      component: DashboardComponent},
+    { path: 'user-profile',   component: UserProfileComponent, canActivate: [AuthGuard],
+    data: { roles: ['admin'] } },
+    { path: 'table-list',     component: TableListComponent, canActivate: [AuthGuard],
     data: { roles: ['admin'] }},
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
