@@ -10,7 +10,7 @@ import { Hero } from './hero';
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  private heroesUrl = "http://localhost:8080/api";  // Web APIのURL
+  private heroesUrl = "http://ec2-3-129-39-58.us-east-2.compute.amazonaws.com:8080/api";  // Web APIのURL
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,14 +21,14 @@ export class HeroService {
 
   /** サーバーからヒーローを取得する */
   getHeroes(email:string): Observable<Hero[]> {
-    return this.http.get<Hero[]>("http://localhost:8080/api/getHeroes/"+email)
+    return this.http.get<Hero[]>("http://ec2-3-129-39-58.us-east-2.compute.amazonaws.com:8080/api/getHeroes/"+email)
       .pipe(
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }
 
   getMarvelHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>("http://localhost:8080/api/getMarvelHeroes")
+    return this.http.get<Hero[]>("http://ec2-3-129-39-58.us-east-2.compute.amazonaws.com:8080/api/getMarvelHeroes")
       .pipe(
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
@@ -36,7 +36,7 @@ export class HeroService {
 
   gettest(email:String):Observable<String>{
     console.log(email);
-    return this.http.get<any>("http://localhost:8080/api/gettest/"+email)
+    return this.http.get<any>("http://ec2-3-129-39-58.us-east-2.compute.amazonaws.com:8080/api/gettest/"+email)
     .pipe(
     );
   }
@@ -79,7 +79,7 @@ export class HeroService {
   /** POST: サーバーに新しいヒーローを登録する */
   addHero(hero: Hero): Observable<Hero> {
     console.log("ok");
-    return this.http.post<Hero>("http://localhost:8080/api/saveHero", hero, this.httpOptions).pipe(
+    return this.http.post<Hero>("http://ec2-3-129-39-58.us-east-2.compute.amazonaws.com:8080/api/saveHero", hero, this.httpOptions).pipe(
       catchError(this.handleError<Hero>('addHero'))
     );
   }
