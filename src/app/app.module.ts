@@ -28,7 +28,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     keycloak.init({
       config: {
         url: 'http://examp-loadb-mzaia3hz1a0e-a8cfba7b9340d224.elb.us-east-1.amazonaws.com:8080/auth',
-        realm: 'master',
+        realm: 'demo',
         clientId: 'keycloak-angular',
       },
       initOptions: {
