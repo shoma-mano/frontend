@@ -10,7 +10,7 @@ import { Hero } from './hero';
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  private heroesUrl = "http://ec2-3-129-39-58.us-east-2.compute.amazonaws.com:8080/api";  // Web APIのURL
+  private heroesUrl = "https://backend.myhero12.work/api/";  // Web APIのURL
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,7 +21,7 @@ export class HeroService {
 
   /** サーバーからヒーローを取得する */
   getHeroes(email:string): Observable<Hero[]> {
-    return this.http.get<Hero[]>("http://ec2-3-129-39-58.us-east-2.compute.amazonaws.com:8080/api/getHeroes/"+email)
+    return this.http.get<Hero[]>(this.heroesUrl+"getHeroes/"+email)
       .pipe(
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );

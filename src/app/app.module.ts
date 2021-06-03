@@ -27,9 +27,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://examp-loadb-mzaia3hz1a0e-a8cfba7b9340d224.elb.us-east-1.amazonaws.com:8080/auth',
-        realm: 'demo',
-        clientId: 'keycloak-angular',
+        url: 'http://localhost:8080/auth',
+        realm: 'hero',
+        clientId: 'hero',
       },
       initOptions: {
         onLoad: 'check-sso',
