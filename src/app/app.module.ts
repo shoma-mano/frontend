@@ -27,7 +27,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8080/auth',
+        url: 'https://keycloak.myhero12.work/auth',
         realm: 'hero',
         clientId: 'hero',
       },
@@ -51,7 +51,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
     RouterModule,
     KeycloakAngularModule,
     AppRoutingModule,
-   
   ],
   declarations: [
     AppComponent,
