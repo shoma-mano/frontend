@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,NgZone} from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
 
@@ -23,7 +23,8 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor(private readonly keycloak: KeycloakService) {}
+  constructor(private readonly keycloak: KeycloakService,
+              private zone: NgZone) {}
 
   public isLoggedIn = false;
   public userProfile: KeycloakProfile | null = null;
@@ -43,7 +44,13 @@ export class SidebarComponent implements OnInit {
 
   public logout() {
     this.keycloak.logout();
+    this.reloadPage();
   }
+    reloadPage() { // click handler or similar
+        this.zone.runOutsideAngular(() => {
+            location.reload();
+        });
+    }
 
   isMobileMenu() {
       if ($(window).width() > 991) {
