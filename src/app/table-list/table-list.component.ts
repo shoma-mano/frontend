@@ -44,7 +44,6 @@ export class TableListComponent implements OnInit {
   }
 
   insertHero(hero: Hero): void {
-    console.log('hello');
     console.log(this.heroes.length);
     if (this.isLoggedIn) {
       hero.email = this.userProfile.email;
